@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <script src="/javascripts/categoryscript.js" defer></script>
+</head>
+<body>
+    <ul>
+        <% locals.allCategories.forEach( category => { %>
+            <li> <a href= '/categories/<%= category._id %>' ><%= category %></a> </li> 
+        <% } ); %> 
+    </ul>
+    <button class="Addbtn">Add Category</button>
+</body>
+</html>
