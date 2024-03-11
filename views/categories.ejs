@@ -7,9 +7,13 @@
     <script src="/javascripts/categoryscript.js" defer></script>
 </head>
 <body>
-    <ul>
+    <ul class="catList">
         <% locals.allCategories.forEach( category => { %>
-            <li> <a href= '/categories/<%= category._id %>' ><%= category %></a> </li> 
+            <li>
+                 <a href= '/categories/<%= category._id %>' ><%= category %></a>
+                 <button class="editBtn" id="<%=category._id %>">Edit</button>
+                <button id="<%= category._id %>">Delete</button> 
+            </li> 
         <% } ); %> 
     </ul>
     <button class="Addbtn">Add Category</button>
