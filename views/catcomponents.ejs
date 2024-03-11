@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="/javascripts/componentscript.js" defer></script>
 </head>
 <body>
-    <ul>
+    <ul class="componentList">
         <% locals.categoryComponents.forEach( component => { %>
-            <li><h1><%= component.name %></h1></li>
+            <li>
+                <h1><%= component.name %></h1>
+                 <button id="<%=component._id%>" >Delete</button>
+                 <button class="editBtn" data-id ="<%=component._id%>" id="#">Update</button>
+            </li>
         <% } ); %>
     </ul>
+    <button class="componentAdd" id="<%=locals.id%>" >Add Component</button>
 </body>
 </html>

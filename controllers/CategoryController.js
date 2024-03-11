@@ -20,6 +20,7 @@ exports.get_category_list = asyncHandler(async (req, res, next) => {
     .exec();
   res.render("catcomponents", {
     categoryComponents: categoryComponents,
+    id: id,
   });
 });
 
@@ -67,7 +68,7 @@ exports.create_category_post = [
         return;
       }
       const category = new Category(categorydetails);
-      console.log(category);
+      category.save();
       res.redirect("/categories/");
     }
   }),
@@ -116,11 +117,21 @@ exports.update_category_post = [
   }),
 ];
 
-exports.delete_category = asyncHandler(async (req, res, next) => {
+exports.delete_category_get = asyncHandler(async (req, res, next) => {
   const id = req.params.id;
   const category = await Category.findOne({ _id: id });
   res.render("catdelete", {
     id: id,
     name: category.name,
   });
+});
+
+exports.delete_category_post = asyncHandler(async (req, res, next) => {
+  const id = req.params.id;
+  await Component.deleteMany({
+    categories: { $elemMatch: { $eq: id } },
+  });
+  await Category.deleteOne({ _id: id });
+  console.log("DELETED!");
+  res.redirect("/categories/");
 });

@@ -13,6 +13,8 @@ categoryList.addEventListener("click", (event) => {
   if (event.target.className === "editBtn") {
     window.location.href = `/categories/update/${id}`;
   } else {
-    window.location.href = `/categories/delete/${id}`;
+    const idd = event.target.getAttribute("data-id");
+    console.log("ID IS T", idd);
+    window.location.href = `/categories/delete/${idd}`;
   }
 });
