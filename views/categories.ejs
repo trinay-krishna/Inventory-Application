@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories</title>
     <script src="/javascripts/categoryscript.js" defer></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/categories.css">
 </head>
 <body>
+    <header><a href="/categories/">Tech Nexus</a></header>
     <ul class="catList">
         <% locals.allCategories.forEach( category => { %>
             <li>
-                 <a href= '/categories/<%= category._id %>' ><%= category %></a>
-                 <button class="editBtn" id="<%=category._id %>">Edit</button>
+                <a href= '/categories/<%= category._id %>'>
+                    <img src="<%=category.imgURL%>" alt="img">
+                    <p><%= category.name %></p>
+                </a>
+                <button class="editBtn" id="<%=category._id %>">Edit</button>
                 <button data-id="<%= category._id %>" id="#">Delete</button> 
             </li> 
         <% } ); %> 
     </ul>
-    <button class="Addbtn">Add Category</button>
+    <div><button class="Addbtn">Add Category</button></div>
 </body>
 </html>

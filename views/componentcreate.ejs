@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/forms.css">
 </head>
 <body>
+    <header><a href="/categories/">Tech Nexus</a></header>
     <form action="/component/<%=locals.id %>/create/" method="post">
         <label for="name">Component Name:</label>
         <input type="text" name="compName" id="name" required value="<%=locals.name%>">
 
         <label for="desc">Component Description: </label>
         <input type="text" name="compDesc" id="desc" required value="<%=locals.desc%>">
+
+        <label for="inStock">Number in Stock:</label>
+        <input type="number" name="compInStock" id="inStock" required value="<%=locals.inStock %>">
 
         <label for="url">Image URL: </label>
         <input type="text" name="compURL" id="url" value="<%=locals.url%>">

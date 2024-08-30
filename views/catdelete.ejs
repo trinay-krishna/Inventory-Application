@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/forms.css">
 </head>
 <body>
+    <header><a href="/categories/">Tech Nexus</a></header>
     <form action="/categories/delete/<%= locals.id %>" method="post">
-        <h1>Are you sure u wanna delete <%= locals.name %></h1>
+        <h1>Are you sure u wanna delete <%= locals.name %>?</h1>
         <button>Yes</button>
+        <button onclick="categoriesList(event)">No</button>
     </form>
-    <button onclick="categoriesList()">No</button>
 
 </body>
 </html>
 <script>
-    function categoriesList() {
+    function categoriesList(event) {
         window.location.href = "/categories/";
     }
 </script>

@@ -1,8 +1,50 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+@font-face {
+  font-family: 'chopsicregular';
+  src: url('../fonts/chopsic-webfont.woff2') format('woff2'),
+    url('../fonts/chopsic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(255, 255, 255);
+}
+
+
+header {
+  font-family: 'chopsicregular';
+  text-shadow: 0px 0px 10px black;
+  font-size: 5rem;
+  box-shadow: 0px 0px 10px black;
+  padding: 30px 0px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, rgba(0, 45, 48, 1) 0%, rgba(26, 9, 179, 1) 100%);
+  & a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+  }
+}
+
+button {
+  padding: 10px 30px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(18, 126, 189);
+  color: white;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: rgb(12, 85, 128);
+  }
 }

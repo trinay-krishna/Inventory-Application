@@ -5,22 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/forms.css">
 </head>
 
 <body>
+    <header><a href="/categories/">Tech Nexus</a></header>
     <form action="/component/delete/<%= locals.id %>" method="post">
-        <h1>Are you sure u wanna delete <%= locals.name %>
-        </h1>
+        <h1>Are you sure u wanna delete <%= locals.name %>?</h1>
         <button>Yes</button>
+        <button onclick="componentsList(event)">No</button>
     </form>
-    <button onclick="componentsList()">No</button>
 
 </body>
 
 </html>
 <script>
-    function componentsList() {
-
-        // window.location.href = `/categories/${locals.}`;
+    function componentsList(event) {
+        event.preventDefault();
+        const url = window.location.href;
+        const categoryId = url.split('?')[1].split('=')[1];
+        window.location.href = `/categories/${categoryId}`;
     }
 </script>

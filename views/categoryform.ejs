@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/forms.css">
 </head>
 <body>
-    <h1>Create Category</h1>
+    <header><a href="/categories/">Tech Nexus</a></header>
     <form action="/categories/create/" method="post">
+        <h1>Create Category</h1>
+        
         <label for="catname">Category:</label>
         <input type="text" name="categoryName" id="catname" required value="<%= locals.name %>">
         

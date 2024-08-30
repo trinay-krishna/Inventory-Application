@@ -1,0 +1,40 @@
+
+
+.catList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    & img {
+        width: 200px;
+        height: 200px;
+    }
+    
+}
+
+li{
+    list-style: none;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    font-size: 1.7rem;
+}
+
+
+div {
+    margin-top: 3%;
+    text-align: center;
+}
+
+.Addbtn {
+    transition: transform 0.5s;
+    &:hover {
+        background-color: rgb(18, 126, 189);
+        transform: scale(1.1);
+    }
+}

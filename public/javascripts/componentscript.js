@@ -11,7 +11,9 @@ componentList.addEventListener("click", (event) => {
     return;
   }
   if (event.target.className !== "editBtn") {
-    window.location.href = `/component/delete/${event.target.id}`;
+    const url = window.location.href;
+    const currentCategoryID = url.split("/").slice(-1)[0];
+    window.location.href = `/component/delete/${event.target.id}/?category=${currentCategoryID}`;
   } else {
     const id = event.target.getAttribute("data-id");
     window.location.href = `/component/update/${id}`;

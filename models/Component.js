@@ -7,6 +7,7 @@ const ComponentSchema = new Schema({
   desc: String,
   categories: [{ type: Schema.Types.ObjectId, ref: "Category" }],
   imgURL: String,
+  inStock: Number,
 });
 
 ComponentSchema.virtual("url").get(function () {

@@ -1,0 +1,22 @@
+
+.componentList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-bottom: 50px;
+}
+
+li {
+    list-style: none;
+    text-align: center;
+}
+
+.componentAdd {
+    transition: transform 0.5s;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+div {
+    text-align: center;
+}

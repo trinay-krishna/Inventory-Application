@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="/javascripts/componentscript.js" defer></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/catcomp.css">
 </head>
 <body>
+    <header><a href="/categories/">Tech Nexus</a></header>
     <ul class="componentList">
         <% locals.categoryComponents.forEach( component => { %>
             <li>
+                <img src="<%=component.imgURL%>" alt="component image" width="200px" height="200px">
                 <h1><%= component.name %></h1>
-                 <button id="<%=component._id%>" >Delete</button>
-                 <button class="editBtn" data-id ="<%=component._id%>" id="#">Update</button>
+                <p>Number in stock:<%=component.inStock %></p>
+                 <span>
+                     <button id="<%=component._id%>" >Delete</button>
+                     <button class="editBtn" data-id ="<%=component._id%>" id="#">Update</button>
+                 </span>
             </li>
         <% } ); %>
     </ul>
-    <button class="componentAdd" id="<%=locals.id%>" >Add Component</button>
+    <div><button class="componentAdd" id="<%=locals.id%>" >Add Component</button></div>
 </body>
 </html>

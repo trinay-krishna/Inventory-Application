@@ -20,6 +20,7 @@ exports.post_component_create = [
     .trim()
     .isLength({ min: 1 })
     .withMessage("Description cannot be empty"),
+  body("compInStock").trim(),
   body("compURL").trim(),
 
   asyncHandler(async (req, res, next) => {
@@ -32,6 +33,7 @@ exports.post_component_create = [
         name: req.body.compName,
         desc: req.body.compDesc,
         url: req.body.compURL,
+        inStock: req.body.compInStock,
         errors: errors.array(),
       });
     } else {
@@ -45,6 +47,7 @@ exports.post_component_create = [
         name: req.body.compName,
         desc: req.body.compDesc,
         categories: [categoryID._id],
+        inStock: req.body.compInStock,
       };
       if (req.body.compURL) {
         compDetails.imgURL = req.body.compURL;
@@ -60,6 +63,7 @@ exports.post_component_create = [
 
 exports.delete_component_get = asyncHandler(async (req, res, next) => {
   const component = await Component.findOne({ _id: req.params.id });
+  console.log(req.query.category);
   res.render("compdelete", {
     id: req.params.id,
     name: component.name,
@@ -80,6 +84,7 @@ exports.update_component_get = asyncHandler(async (req, res, next) => {
     name: component.name,
     desc: component.desc,
     url: component.imgURL,
+    inStock: component.inStock,
     id: id,
   });
 });
@@ -93,6 +98,8 @@ exports.update_component_post = [
     .trim()
     .isLength({ min: 1 })
     .withMessage("Component description cannot be emtpy!"),
+  body("compInStock").trim(),
+  body("compURL").trim(),
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
 
@@ -100,6 +107,7 @@ exports.update_component_post = [
       res.render("compupdate", {
         name: req.body.compName,
         desc: req.body.compDesc,
+        inStock: req.body.compInStock,
         url: req.body.compURL,
         id: req.params.id,
         errors: errors.array(),
@@ -109,6 +117,7 @@ exports.update_component_post = [
       const category = component.categories[0].toString();
       component.name = req.body.compName;
       component.desc = req.body.compDesc;
+      component.inStock = req.body.compInStock;
       component.imgURL = req.body.compURL;
       console.log(component);
       await component.save();
